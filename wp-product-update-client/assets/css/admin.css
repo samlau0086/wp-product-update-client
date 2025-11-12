@@ -1,0 +1,28 @@
+.wp-product-update-client-settings {
+    max-width: 720px;
+}
+
+.wp-product-update-client-settings .notice {
+    margin-top: 1rem;
+}
+
+.wp-product-update-client-settings .card {
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.wp-product-update-client-credentials {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.wp-product-update-client-credentials .widefat {
+    width: 100%;
+}
+
+@media (max-width: 782px) {
+    .wp-product-update-client-credentials {
+        grid-template-columns: 1fr;
+    }
+}
