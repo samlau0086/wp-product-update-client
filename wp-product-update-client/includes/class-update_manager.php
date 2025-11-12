@@ -77,7 +77,7 @@ class Update_Manager {
         }
 
         $response = $this->api_client->post(
-            'wp-json/wp-product-update-server/v1/check-updates',
+            'check-updates',
             array( 'plugins' => $payload ),
             $this->auth_manager->authorized_headers()
         );
@@ -139,7 +139,7 @@ class Update_Manager {
         }
 
         $response = $this->api_client->post(
-            'wp-json/wp-product-update-server/v1/plugin-information',
+            'plugin-information',
             array( 'slug' => $args->slug ),
             $this->auth_manager->authorized_headers()
         );

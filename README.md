@@ -14,7 +14,8 @@ This repository contains a WordPress plugin that integrates with the companion [
 
 1. Copy the `wp-product-update-client` directory into your WordPress site's `wp-content/plugins/` folder.
 2. Activate the **WP Product Update Client** plugin from the WordPress Plugins screen.
-3. Navigate to **Settings → Product Updates** and configure the base URL of your WP Product Update Server installation.
+3. Navigate to **Settings → Product Updates** and configure the base URL of your WP Product Update Server installation. You can
+   supply either the site URL (e.g. `https://example.com`) or the REST namespace URL (e.g. `https://example.com/wp-json/wp-product-update-server/v1`).
 4. Log in with the credentials provided when you purchased your plugins. After a successful login, the plugin will automatically manage update checks and downloads.
 
 ## Development

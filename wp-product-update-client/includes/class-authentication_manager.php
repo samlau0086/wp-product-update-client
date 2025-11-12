@@ -73,7 +73,7 @@ class Authentication_Manager {
             'site'     => home_url(),
         );
 
-        $response = $this->api_client->post( 'wp-json/wp-product-update-server/v1/login', $payload );
+        $response = $this->api_client->post( 'login', $payload );
         if ( is_wp_error( $response ) ) {
             return $response;
         }

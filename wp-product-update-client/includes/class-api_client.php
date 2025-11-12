@@ -14,7 +14,8 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 class API_Client {
 
-    const OPTION_SETTINGS = 'wp_product_update_client_settings';
+    const OPTION_SETTINGS       = 'wp_product_update_client_settings';
+    const DEFAULT_API_NAMESPACE = 'wp-json/wp-product-update-server/v1';
 
     /**
      * Cached settings.
@@ -151,13 +152,30 @@ class API_Client {
      */
     private function build_url( $path ) {
         $path = ltrim( $path, '/' );
+
+        if ( empty( $path ) ) {
+            return '';
+        }
+
         $base = $this->get_api_base();
 
         if ( empty( $base ) ) {
             return '';
         }
 
-        return $base . '/' . $path;
+        if ( preg_match( '#^https?://#i', $path ) ) {
+            return $path;
+        }
+
+        $base_contains_namespace = false !== strpos( $base, 'wp-json/' )
+            || false !== strpos( $base, 'rest_route=' )
+            || false !== strpos( $base, 'wp-product-update-server/v1' );
+
+        if ( $base_contains_namespace ) {
+            return rtrim( $base, '/' ) . '/' . $path;
+        }
+
+        return rtrim( $base, '/' ) . '/' . self::DEFAULT_API_NAMESPACE . '/' . $path;
     }
 
     /**
