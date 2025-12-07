@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>The Pioneer - Balanced Jia Wood</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <style>
+        :root {
+            --bg: #f3efe8;
+            --text: #262626;
+            --muted: #7a7a7a;
+            --card: #ffffff;
+            --border: #e6dfd3;
+            --accent: #ecae00;
+            --shadow: 0 10px 30px rgba(46, 36, 26, 0.08);
+            --radius: 16px;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            padding: 24px;
+        }
+
+        .page {
+            max-width: 1200px;
+            margin: 0 auto 80px;
+        }
+
+        .section-card {
+            background: var(--card);
+            border-radius: var(--radius);
+            box-shadow: var(--shadow);
+            padding: 24px 28px;
+            margin-bottom: 24px;
+            border: 1px solid var(--border);
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+        }
+
+        .header .icon {
+            width: 48px;
+            height: 48px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #f7e6b1, #f4c65d);
+            display: grid;
+            place-items: center;
+            font-size: 26px;
+        }
+
+        .headline {
+            margin: 0;
+            font-size: 24px;
+            font-weight: 700;
+        }
+
+        .subhead {
+            margin: 0;
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .hero-title {
+            text-align: center;
+            margin-bottom: 12px;
+            font-weight: 700;
+            font-size: 26px;
+        }
+
+        .hero-meta {
+            text-align: center;
+            color: var(--muted);
+            margin: 4px 0;
+            font-size: 14px;
+        }
+
+        .pill-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+            margin: 10px 0 18px;
+        }
+
+        .pill {
+            padding: 8px 14px;
+            background: #f0f0f0;
+            border-radius: 999px;
+            font-size: 13px;
+            color: #3a3a3a;
+        }
+
+        .description {
+            margin: 0 auto;
+            max-width: 740px;
+            text-align: center;
+            font-size: 14px;
+            color: #4a4540;
+            background: #f7f4ed;
+            padding: 14px 16px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+
+        .grid {
+            display: grid;
+            gap: 12px;
+        }
+
+        .grid.cols-4 {
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+        }
+
+        .grid.cols-2 {
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        }
+
+        .card {
+            background: #faf7f1;
+            border-radius: 14px;
+            padding: 14px 16px;
+            border: 1px solid var(--border);
+        }
+
+        .card.headline {
+            font-size: 16px;
+        }
+
+        .card-title {
+            margin: 0 0 6px;
+            font-weight: 700;
+            font-size: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title .badge {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .badge.gold { background: #f8d86b; color: #3a2e18; }
+        .badge.red { background: #fcd5cf; color: #8c2b13; }
+        .badge.green { background: #e0f2d3; color: #2f7d44; }
+        .badge.blue { background: #dcecfb; color: #1e5c9a; }
+        .badge.pink { background: #f7d8d8; color: #aa3e62; }
+        .badge.brown { background: #d7c1a3; color: #4b371d; }
+        .badge.orange { background: #fbd7b0; color: #9d4f0e; }
+
+        .card-text {
+            margin: 0;
+            color: #51463e;
+            font-size: 14px;
+        }
+
+        .list-item {
+            display: grid;
+            grid-template-columns: 40px 1fr;
+            gap: 12px;
+            align-items: center;
+            padding: 12px;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+            background: #faf7f1;
+        }
+
+        .list-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: grid;
+            place-items: center;
+            font-size: 18px;
+        }
+
+        .list-title {
+            margin: 0 0 4px;
+            font-weight: 700;
+        }
+
+        .list-sub {
+            margin: 0;
+            color: var(--muted);
+            font-size: 13px;
+        }
+
+        .line {
+            height: 100%;
+            width: 4px;
+            border-radius: 20px;
+        }
+
+        .notes {
+            display: grid;
+            gap: 10px;
+        }
+
+        .tag-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .tag {
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: #f3e1f1;
+            color: #8b3d7f;
+            font-size: 13px;
+            border: 1px solid #edcdef;
+        }
+
+        .wealth-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 10px;
+        }
+
+        .wealth-item {
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 12px;
+            background: #faf7f1;
+        }
+
+        .wealth-title {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            margin: 0 0 6px;
+            font-weight: 700;
+        }
+
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+        }
+
+        .color-item {
+            border-radius: 12px;
+            padding: 12px;
+            border: 1px solid var(--border);
+            background: #faf7f1;
+        }
+
+        .color-pills {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
+
+        .color-pill {
+            padding: 6px 12px;
+            border-radius: 8px;
+            color: #2f2f2f;
+            font-weight: 600;
+            background: #ece8e0;
+            border: 1px solid #ddd0be;
+        }
+
+        .recommended {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 12px;
+        }
+
+        .plant-card {
+            border-radius: 14px;
+            overflow: hidden;
+            border: 1px solid var(--border);
+            background: #faf7f1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .plant-card img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .plant-card .body {
+            padding: 12px 14px;
+        }
+
+        .plant-card h4 {
+            margin: 0 0 8px;
+            font-weight: 700;
+        }
+
+        .plant-card p {
+            margin: 0 0 8px;
+            color: #51463e;
+            font-size: 14px;
+        }
+
+        .caption {
+            color: #7c6f63;
+            font-size: 13px;
+            margin: 0;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 16px;
+            }
+
+            .section-card {
+                padding: 18px 16px;
+            }
+
+            .headline {
+                font-size: 20px;
+            }
+
+            .hero-title {
+                font-size: 22px;
+            }
+
+            .grid.cols-4 {
+                grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            }
+
+            .plant-card img {
+                height: 160px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main class="page">
+        <section class="section-card">
+            <div class="header">
+                <div class="icon">🌙</div>
+                <div>
+                    <h1 class="headline">The Pioneer - Balanced Jia Wood</h1>
+                    <p class="subhead">June 19, 1990 (6:45 AM) — Beijing • April 17, 2024 — Jian Yao</p>
+                </div>
+            </div>
+            <h2 class="hero-title">The Pioneer - Balanced Jia Wood</h2>
+            <div class="pill-row">
+                <span class="pill">The Pioneer</span>
+                <span class="pill">Balanced</span>
+                <span class="pill">Indulgent Wealth / Eating God / Hurting Officer</span>
+                <span class="pill">Harmonious PENTAGON</span>
+            </div>
+            <p class="description">
+                Your Paht Chee chart showcases the core of The Pioneer — courage, determination, clear vision, and strong leadership. Your Balanced Day Master highlights your ability to adapt to change, stay grounded, and think clearly under pressure. As a Balanced Pioneer, you excel at decisive thinking, taking calculated risks, and driving towards ambitious goals. However, be mindful of overcommitting and strive for balance in work and rest to avoid burnout.
+            </p>
+        </section>
+
+        <section class="section-card">
+            <div class="header">
+                <div class="icon">✨</div>
+                <div>
+                    <h2 class="headline">Personality Code</h2>
+                    <p class="subhead">Based on your Day Master and chart profile</p>
+                </div>
+            </div>
+            <div class="grid cols-4">
+                <div class="card">
+                    <h3 class="card-title"><span class="badge gold">6</span> Born a Leader</h3>
+                    <p class="card-text">Jia Wood stands tall — resilient, purposeful, and always growing towards the light. With solid roots, you’re the friend people rely on.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><span class="badge red">4</span> Courageously Driven</h3>
+                    <p class="card-text">You see obstacles as stepping stones. Your strength and determination help you achieve lofty ambitions.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><span class="badge green">10</span> Quick-Minded</h3>
+                    <p class="card-text">You process information swiftly, making your gift for critical thinking your superpower.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><span class="badge blue">11</span> Takes Action Fast</h3>
+                    <p class="card-text">You move from idea to action quickly and decisively — just avoid overloading yourself.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="header">
+                <div class="icon">🌟</div>
+                <div>
+                    <h2 class="headline">Celebrities with Your Energy</h2>
+                    <p class="subhead">Famous Pioneers who share the core of The Pioneer — courage, determination, clear vision, and strong leadership</p>
+                </div>
+            </div>
+            <div class="grid" style="gap:12px;">
+                <div class="list-item" style="grid-template-columns: 40px 1fr 1fr;">
+                    <div class="list-icon" style="background:#f3d4c8; color:#973826;">🗺️</div>
+                    <div>
+                        <p class="list-title">Ernest Hemingway</p>
+                        <p class="list-sub">Trailblazing novelist and journalist, renowned for adventurous storytelling and pioneering themes.</p>
+                    </div>
+                    <p class="list-sub">July 21, 1899, 8:00 AM<br />Oak Park, IL</p>
+                </div>
+                <div class="list-item" style="grid-template-columns: 40px 1fr 1fr;">
+                    <div class="list-icon" style="background:#d7e8f9; color:#1e5c9a;">⚔️</div>
+                    <div>
+                        <p class="list-title">Alexander the Great</p>
+                        <p class="list-sub">Legendary king and military strategist, known for leadership and decisive expansion of empires.</p>
+                    </div>
+                    <p class="list-sub">July 21, 356 BC<br />Pella, Macedon</p>
+                </div>
+                <div class="list-item" style="grid-template-columns: 40px 1fr 1fr;">
+                    <div class="list-icon" style="background:#f3d4c8; color:#973826;">🎬</div>
+                    <div>
+                        <p class="list-title">Al Pacino</p>
+                        <p class="list-sub">Iconic actor known for his intense presence and commanding performances.</p>
+                    </div>
+                    <p class="list-sub">April 25, 1940, 11:02 AM<br />New York City, NY</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="header">
+                <div class="icon">🤝</div>
+                <div>
+                    <h2 class="headline">Social Energy</h2>
+                    <p class="subhead">Who thrives with you — based on your chart relationships</p>
+                </div>
+            </div>
+            <div class="notes">
+                <div class="list-item">
+                    <div class="list-icon" style="background:#eddaf5; color:#823b85;">💕</div>
+                    <div>
+                        <p class="list-title">Relationship</p>
+                        <p class="list-sub">Insights on those who are attracted and compatible with you</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon" style="background:#c1d9f6; color:#1e5c9a;">⚓</div>
+                    <div>
+                        <p class="list-title">Social Circle</p>
+                        <p class="list-sub">Your supporting friends or social group</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon" style="background:#f4d7c8; color:#9d4f0e;">🤝</div>
+                    <div>
+                        <p class="list-title">Opportunities</p>
+                        <p class="list-sub">Ways to expand and deepen key relationships</p>
+                    </div>
+                </div>
+                <div class="list-item">
+                    <div class="list-icon" style="background:#fcd5cf; color:#8c2b13;">🔧</div>
+                    <div>
+                        <p class="list-title">Practical Steps</p>
+                        <p class="list-sub">Steps you can take</p>
+                    </div>
+                </div>
+                <div class="list-item" style="grid-template-columns: 6px 1fr; background:#fff; border-style:dashed;">
+                    <span class="line" style="background:#f2938e;"></span>
+                    <p class="card-text">
+                        You naturally attract people who value your strategic thinking and perseverance. In love, prioritize partners who respect your independence and share your vision — avoid giving in to guilt-driven decisions.
+                    </p>
+                </div>
+                <div class="list-item" style="grid-template-columns: 6px 1fr; background:#fff; border-style:dashed;">
+                    <span class="line" style="background:#f2c45a;"></span>
+                    <p class="card-text">
+                        You draw supportive friends who are reliable and grounded. Lean on them for advice and encouragement, and invest time in nurturing these connections.
+                    </p>
+                </div>
+                <div class="list-item" style="grid-template-columns: 6px 1fr; background:#fff; border-style:dashed;">
+                    <span class="line" style="background:#9ac790;"></span>
+                    <p class="card-text">
+                        Attending leadership workshops, masterminds, or industry events will be fertile ground for compatible connections who appreciate your vision.
+                    </p>
+                </div>
+                <div class="list-item" style="grid-template-columns: 6px 1fr; background:#fff; border-style:dashed;">
+                    <span class="line" style="background:#cba6ec;"></span>
+                    <div class="tag-row">
+                        <span class="tag">Date intentionally — avoid settling out of guilt or obligation.</span>
+                        <span class="tag">Invest in friends who keep you grounded and balanced.</span>
+                        <span class="tag">Expand your network with leadership circles.</span>
+                        <span class="tag">Be proactive — reach out when you need help.</span>
+                        <span class="tag">Prioritize emotional balance: joy, rest, and affection.</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="header">
+                <div class="icon">❤️</div>
+                <div>
+                    <h2 class="headline">Health & Emotional</h2>
+                    <p class="subhead">What to watch out for — based on your chart’s elemental balance</p>
+                </div>
+            </div>
+            <div class="grid cols-2">
+                <div class="card">
+                    <h3 class="card-title"><span class="badge gold">⚖️</span> Balance & Monitoring</h3>
+                    <p class="card-text">Nervous system and immune health — limited output of energy to maintain health.</p>
+                </div>
+                <div class="card">
+                    <h3 class="card-title"><span class="badge red">🩺</span> Emotional Wellbeing</h3>
+                    <p class="card-text">Frustration, anger, restlessness — this period may feel a lack of support and that everyone is against you. Balance yourself: joy, rest and affection.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="header">
+                <div class="icon">💰</div>
+                <div>
+                    <h2 class="headline">Wealth</h2>
+                    <p class="subhead">Career and growth — based on resourceful elements in your chart</p>
+                </div>
+            </div>
+            <div class="wealth-grid">
+                <div class="wealth-item">
+                    <p class="wealth-title"><span class="badge orange" style="width:32px;height:32px;font-size:16px;">W</span> Wealth</p>
+                    <p class="card-text">Wealth is steady and still needs purposeful effort. You can steadily and steadily invest more to further develop your financial foundation.</p>
+                </div>
+                <div class="wealth-item">
+                    <p class="wealth-title"><span class="badge green" style="width:32px;height:32px;font-size:16px;">A</span> Approach</p>
+                    <p class="card-text">Balance purpose and enjoyment. Lead with intent and believe you deserve more. Avoid over-indulgence.</p>
+                </div>
+                <div class="wealth-item">
+                    <p class="wealth-title"><span class="badge blue" style="width:32px;height:32px;font-size:16px;">O</span> Opportunities</p>
+                    <p class="card-text">Plan and consider steps that lead you towards your next milestone. Ensure your operations or investments are efficient and constructive.</p>
+                </div>
+                <div class="wealth-item">
+                    <p class="wealth-title"><span class="badge pink" style="width:32px;height:32px;font-size:16px;">S</span> Solutions</p>
+                    <p class="card-text">Seek partnerships or systems that maximize efficiency.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="header">
+                <div class="icon">🎨</div>
+                <div>
+                    <h2 class="headline">Your Favored Elements & Lucky Colors</h2>
+                    <p class="subhead">Align to stay balanced</p>
+                </div>
+            </div>
+            <div class="color-grid">
+                <div class="color-item">
+                    <p class="wealth-title">Elements: Wood & Earth</p>
+                    <div class="color-pills">
+                        <span class="color-pill" style="background:#e8f4e0; border-color:#b9d7a5;">Wood</span>
+                        <span class="color-pill" style="background:#f1e5d6; border-color:#d8c6ac;">Earth</span>
+                    </div>
+                </div>
+                <div class="color-item">
+                    <p class="wealth-title">Colors</p>
+                    <div class="color-pills">
+                        <span class="color-pill" style="background:#f3e6b1;">Yellow</span>
+                        <span class="color-pill" style="background:#d9e9fc;">Sky Blue</span>
+                        <span class="color-pill" style="background:#f6c0d4;">Pink</span>
+                        <span class="color-pill" style="background:#e5d7f7;">Purple</span>
+                        <span class="color-pill" style="background:#e0f2d3;">Lime</span>
+                        <span class="color-pill" style="background:#f0cdae;">Peach</span>
+                        <span class="color-pill" style="background:#e1e1e1;">White</span>
+                    </div>
+                </div>
+                <div class="color-item" style="grid-column: 1 / -1;">
+                    <p class="wealth-title">Your recommended choices</p>
+                    <div class="color-pills">
+                        <span class="color-pill" style="background:#f3e6b1;">Yellow</span>
+                        <span class="color-pill" style="background:#f6c0d4;">Pink</span>
+                        <span class="color-pill" style="background:#e0f2d3;">Lime</span>
+                        <span class="color-pill" style="background:#d9e9fc;">Sky Blue</span>
+                        <span class="color-pill" style="background:#e1e1e1;">White</span>
+                        <span class="color-pill" style="background:#e5d7f7;">Purple</span>
+                        <span class="color-pill" style="background:#f0cdae;">Peach</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="section-card">
+            <div class="header">
+                <div class="icon">🌳</div>
+                <div>
+                    <h2 class="headline">Recommended for You</h2>
+                    <p class="subhead">Select plants that resonate with your favored elements and lucky colors</p>
+                </div>
+            </div>
+            <div class="recommended">
+                <article class="plant-card">
+                    <img src="https://images.unsplash.com/photo-1517256064527-09c73fc73e63?auto=format&fit=crop&w=800&q=80" alt="Desert Rose" />
+                    <div class="body">
+                        <h4>Desert Rose</h4>
+                        <p>Relates with Earth — and Water, Wood</p>
+                        <p class="caption">Your choice of colors: Pink</p>
+                    </div>
+                </article>
+                <article class="plant-card">
+                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Bonsai" />
+                    <div class="body">
+                        <h4>Bonsai</h4>
+                        <p>Relates with Earth — and Wood, Metal</p>
+                        <p class="caption">Your choice of colors: Pink, Yellow, Lime</p>
+                    </div>
+                </article>
+                <article class="plant-card">
+                    <img src="https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=800&q=80" alt="Lucky Bamboo" />
+                    <div class="body">
+                        <h4>Lucky Bamboo</h4>
+                        <p>Relates with Metal — and Earth, Water</p>
+                        <p class="caption">Your choice of colors: Yellow, Lime</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+</body>
+</html>
